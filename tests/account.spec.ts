@@ -22,7 +22,7 @@ test.describe("My Account", () => {
 
   // Remove the page block if you use describe.serial and beforeAll hooks
   test("Access Orders", async ({ page }) => {
-    await page.goto("/my-accoount");
+    await page.goto("/my-account");
     await page.locator(`li a[href*='orders']`).click();
     await expect(page).toHaveURL(/.*orders/);
     // const successAlert = page.locator('li[role="menuitem"]').nth(1);
