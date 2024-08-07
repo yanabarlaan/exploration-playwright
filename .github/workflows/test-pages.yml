@@ -87,6 +87,15 @@ jobs:
           path: playwright-report
           retention-days: 14
 
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    if: always()
+    needs: [test]
+
+    runs-on: ubuntu-latest
+    steps:
       - name: Setup Pages
         uses: actions/configure-pages@v2
       - name: Upload artifact
