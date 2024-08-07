@@ -35,7 +35,7 @@ jobs:
           path: test-results
       - name: Deploy to Github Pages
         id: deployment
-        environment:
-          name: github-pages
-          url: ${{ steps.deployment.outputs.page_url }}
-        uses: actions/deploy-pages@v1
+        # environment:
+        #   name: github-pages
+        #   url: ${{ steps.deployment.outputs.page_url }}
+        # uses: actions/deploy-pages@v1
