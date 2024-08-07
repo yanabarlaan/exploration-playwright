@@ -30,7 +30,23 @@ const config: PlaywrightTestConfig = {
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: [["allure-playwright", { outputFolder: "test-results" }], ["line"]],
+  // reporter: [["allure-playwright", { outputFolder: "test-results" }], ["line"]],
+  reporter: [
+    ["@butchmayhew/playwright-json-summary-reporter"],
+    ["list"],
+    [
+      "json",
+      {
+        outputFile: "json-reports/jsonReports.json",
+      },
+    ],
+    [
+      process.env.CI ? "blob" : "html",
+      {
+        open: "never",
+      },
+    ],
+  ],
 
   //globalSetup: require.resolve("./utils/global-setup"),
 
@@ -39,12 +55,12 @@ const config: PlaywrightTestConfig = {
     /* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
     actionTimeout: 0,
     /* Base URL to use in actions like `await page.goto('/')`. */
-    baseURL: "https://practice.automationbro.com",
+    //baseURL: "https://practice.automationbro.com",
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: "retain-on-failure",
 
-    storageState: "loggedInState.json",
+    //storageState: "loggedInState.json",
   },
 
   /* Configure projects for major browsers */

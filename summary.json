@@ -1,0 +1,12 @@
+{
+  "durationInMS": 1462,
+  "passed": [
+    "example.spec.ts:3:5"
+  ],
+  "skipped": [],
+  "failed": [],
+  "warned": [],
+  "timedOut": [],
+  "status": "passed",
+  "startedAt": 1723060351453
+}
