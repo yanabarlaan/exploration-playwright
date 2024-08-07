@@ -93,8 +93,8 @@ jobs:
         uses: actions/upload-pages-artifact@v1
         with:
           path: html-report--attempt-${{ github.run_attempt }}
-      - name: Deploy to Github Pages
-        id: deployment
+      # - name: Deploy to Github Pages
+      #   id: deployment
         # environment:
         #   name: github-pages
         #   url: ${{ steps.deployment.outputs.page_url }}
