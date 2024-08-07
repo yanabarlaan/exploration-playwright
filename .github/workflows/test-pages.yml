@@ -92,7 +92,7 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     if: always()
-    needs: [test]
+    needs: [merge-reports]
 
     runs-on: ubuntu-latest
     steps:
@@ -101,7 +101,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./playwright-report
+          path: playwright-report
       - name: Deploy to Github Pages
         id: deployment
         uses: actions/deploy-pages@v1
